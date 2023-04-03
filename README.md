@@ -17,3 +17,6 @@ gbopyrator \
     --dump-save save.sav            # dump the RAM (save) to file \
     --write-save save_backup.sav    # read the file save_backup.sav and upload it to the cartridge RAM (save) \
 ```
+
+## Screen Capture
+![](imgs/screen_capture_1.png)
