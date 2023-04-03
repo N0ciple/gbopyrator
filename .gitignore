@@ -8,8 +8,6 @@ wireshark_dumps/
 *.gbc
 *.gba
 
-test.py
-
 # ========================= #
 
 # Byte-compiled / optimized / DLL files
