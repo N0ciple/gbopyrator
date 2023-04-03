@@ -1,7 +1,7 @@
 import usb.core
 import time
 from crccheck.crc import Crc32Mpeg2
-from constants import MBC_TYPES, RAM_TYPES, ROM_TYPES
+from .constants import MBC_TYPES, RAM_TYPES, ROM_TYPES
 from rich.progress import Progress
 
 

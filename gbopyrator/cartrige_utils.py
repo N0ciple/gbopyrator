@@ -2,8 +2,8 @@ import binascii
 import time
 import re
 from rich.console import Console
-import coms_utils as cu
-from printer import Printer
+from . import coms_utils as cu
+from .printer import Printer
 
 
 def check_initialized(func):
@@ -184,36 +184,3 @@ def create_crc_db(filename):
     for game in games:
         db[game[2]] = game
     return db
-
-
-if __name__ == "__main__":
-    import time
-
-    from rich.progress import Progress
-
-    with Progress() as progress:
-        task1 = progress.add_task("[red]Downloading...", total=1000)
-        task2 = progress.add_task("[green]Processing...", total=1000)
-        task3 = progress.add_task("[cyan]Cooking...", total=1000)
-
-        while not progress.finished:
-            progress.update(task1, advance=0.5)
-            progress.update(task2, advance=0.3)
-            progress.update(task3, advance=0.9)
-            time.sleep(0.02)
-    # import time
-    # from rich.progress import track
-
-    # for i in track(range(20), description="Processing..."):
-    #     time.sleep(1)  # Simulate work being done
-
-    # cr = CartridgeReader()
-    # cr.initialize_reader_blocking()
-    # print(cr.read_cartridge_info())
-    # out = cr.read_rom()
-    # print(len(out))
-    # # cr.dump_rom("test_dump.rom")
-    # # cr.dump_save("test_dump.sav")
-    # # cr.dump_save("TESTsave.bin")
-    # # cr.write_save_from_file("assets/ltk.sav")
-    # cr.close()

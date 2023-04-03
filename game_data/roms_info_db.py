@@ -1,6 +1,7 @@
 import re
 import json
-from constants import ROM_INFO_SPLIT
+
+ROM_INFO_SPLIT = "------------------- ROM INFO -------------------"
 
 
 def parse_rom(raw_info):
@@ -71,14 +72,8 @@ def clean_roms_db(roms_db):
     return roms_db
 
 
-def load_roms_db(filename="data/gb_gbc_roms_info.json"):
-    with open(filename, "r") as file:
-        roms_db = json.load(file)
-    return roms_db
-
-
 if __name__ == "__main__":
-    with open("data/originals/GB_ROM_INFO.txt", "r") as file:
+    with open("./originals/gb_gbc_roms_info.txt", "r") as file:
         data = file.read()
     # skip the first line
     data_list = data.split(ROM_INFO_SPLIT)[1:]
@@ -89,5 +84,5 @@ if __name__ == "__main__":
     roms_db = build_roms_db(roms_list)
 
     # dump the db as json file
-    with open("data/gb_gbc_roms_info.json", "w") as file:
+    with open("../gbopyrator/gb_gbc_roms_info.json", "w") as file:
         json.dump(roms_db, file, indent=4)

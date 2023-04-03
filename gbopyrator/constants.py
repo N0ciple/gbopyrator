@@ -48,5 +48,3 @@ RAM_TYPES = {
     0x04: {"SRAM_size_info": "128 KiB", "info": "16 banks of 8 KiB each"},
     0x05: {"SRAM_size_info": "64 KiB", "info": "8 banks of 8 KiB each"},
 }
-
-ROM_INFO_SPLIT = "------------------- ROM INFO -------------------"
