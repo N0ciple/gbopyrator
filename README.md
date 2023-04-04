@@ -1,5 +1,4 @@
-# gbopyrator: a Python module to control the GB Operator
-
+# gbopyrator: command line tool to control the GB Operator
 ⚠️ Under development
 
 ## Information
