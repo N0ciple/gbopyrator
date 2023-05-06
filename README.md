@@ -1,12 +1,12 @@
-# gbopyrator: manage your GB Operator with Python
+# gbopyrator: a command line tool and library for the GB Operator
 
 ![](imgs/gbopyrator_demo.gif)
 
 ## ℹ️ Information
 
-GBOopyrator is a Python package that enables you to control the GB Operator from [Epilogue](https://www.epilogue.co/) via the command line.
-Currently, `gbopyrator` is only compatible with **GameBoy** and **GameBoy Color** games. Support for GameBoy Advance is in development!
-GBOpyrator can also be utilised as a library in your own projects.
+GBOpyrator is a versatile Python package that allows you to manage and control the GB Operator from [Epilogue](https://www.epilogue.co/) via the command line. It currently supports **GameBoy** and **GameBoy Color** games, with GameBoy Advance compatibility in the works! 
+
+GBOpyrator can also be integrated into your own projects as a library.
 
 ## ⬇️ Installation
 ```bash
@@ -21,4 +21,4 @@ gbopyrator \
     --write-save save_backup.sav    # read the file save_backup.sav and upload it to the cartridge RAM (save) \
 ```
 ### As a library
-Refer to the [DOC.md](DOC.md) file for information on using GBOpyrator as a library.
+For detailed information on utilizing PyGBOperator as a library, please refer to the [DOC.md](DOC.md) file.
