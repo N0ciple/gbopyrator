@@ -29,7 +29,7 @@ def main():
         cr.printer.warning(
             "`dump-save` and `write-save` are both set. GBOpyrator will dump the save first and write it after."
         )
-    cr.initialize_reader_blocking()
+    cr.initialize_reader(blocking=True,timeout=10)
 
     rom_epilogue_id = cr.get_epilogue_id()
     roms_db = load_roms_db()
