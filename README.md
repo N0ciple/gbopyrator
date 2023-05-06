@@ -1,5 +1,6 @@
-# gbopyrator: command line tool to control the GB Operator
-⚠️ Under development
+# gbopyrator: a Python module to manage your games with the GB Operator
+
+![](imgs/demo.gif)
 
 ## Information
 
@@ -16,6 +17,3 @@ gbopyrator \
     --dump-save save.sav            # dump the RAM (save) to file \
     --write-save save_backup.sav    # read the file save_backup.sav and upload it to the cartridge RAM (save) \
 ```
-
-## Screen Capture
-![](imgs/screen_capture_1.png)
