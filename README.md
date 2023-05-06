@@ -1,4 +1,4 @@
-# gbopyrator: manage your GB Operator with Python 🐍
+# gbopyrator: manage your GB Operator with Python🐍
 
 ![](imgs/gbopyrator_demo.gif)
 
