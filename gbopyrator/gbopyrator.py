@@ -1,16 +1,7 @@
 # %%
 import argparse
-from .cartrige_utils import CartridgeReader
-import json
-
-from pkg_resources import resource_filename
-
-
-def load_roms_db(filename=resource_filename(__name__, "gb_gbc_roms_info.json")):
-    with open(filename, "r") as file:
-        roms_db = json.load(file)
-    return roms_db
-
+from .cartridge_utils import CartridgeReader
+from gbopyrator import load_roms_db
 
 # %%
 def main():

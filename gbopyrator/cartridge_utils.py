@@ -4,7 +4,7 @@ import re
 from rich.console import Console
 from . import coms_utils as cu
 from .printer import Printer
-
+import sys
 
 def check_initialized(func):
     def wrapper(*args, **kwargs):
@@ -47,9 +47,15 @@ class CartridgeReader(object):
         self.quiet = quiet
         self.printer = Printer(quiet=quiet)
 
-    def initialize_reader(self):
+    def initialize_reader(self, blocking=False, timeout=0):
+        if not blocking and timeout != 0:
+            print("[WARNING] timeout is ignored when blocking is set to Fale",file=sys.stderr)
+
         with self.printer.status("Initializing reader..."):
-            dev = cu.find_gb_operator()
+            if blocking:
+                dev = cu.find_gb_operator_blocking(timeout=timeout)
+            else:
+                dev = cu.find_gb_operator()
 
         if dev is None:
             raise ValueError(
@@ -62,21 +68,6 @@ class CartridgeReader(object):
             self.initialized = True
             self.printer.success("[bold green]Reader initialized[/bold green]")
 
-        return
-
-    def initialize_reader_blocking(self, timeout=0):
-        with self.printer.status("Initializing reader..."):
-            dev = cu.find_gb_operator_blocking(timeout=timeout)
-        if dev is None:
-            raise ValueError(
-                """
-                GB Operator not found, check it is plugged in or that the appropriate udev rules are set up if you are on linux. See : https://support.epilogue.co/hc/en-us/articles/4403827118738-How-can-I-connect-my-Operator-device-on-Linux-under-a-non-root-user-
-                """
-            )
-        else:
-            self.gbop_device = cu.init_gb_operator(dev)
-            self.initialized = True
-            self.printer.success("[bold green]Reader initialized[/bold green]")
         return
 
     @check_initialized
