@@ -1,6 +1,6 @@
 # gbopyrator: a Python module to manage your games with the GB Operator
 
-![](imgs/demo.gif)
+![](imgs/gbopyrator_demo.gif)
 
 ## Information
 
