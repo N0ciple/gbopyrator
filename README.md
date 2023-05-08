@@ -22,4 +22,4 @@ gbopyrator \
     --write-save save_backup.sav    # read the file save_backup.sav and upload it to the cartridge RAM (save) \
 ```
 ### As a library
-For detailed information on utilizing PyGBOperator as a library, please refer to the [DOC.md](DOC.md) file.
+For detailed information on utilising GBOpyrator as a **library**, please refer to the [DOC.md](DOC.md) file.
