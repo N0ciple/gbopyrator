@@ -6,7 +6,7 @@
 
 GBOpyrator is a versatile Python package that allows you to manage and control the GB Operator from [Epilogue](https://www.epilogue.co/) via the command line. It currently supports **GameBoy** and **GameBoy Color** games, with GameBoy Advance compatibility in the works! 
 
-GBOpyrator can also be integrated into your own projects as a library.
+GBOpyrator is also available as a **library** so that you can integrate it into your own projects!
 
 ## ⬇️ Installation
 ```bash
@@ -14,6 +14,7 @@ pip install gbopyrator
 ```
 ## 🕹️ Usage
 ### As a CLI tool
+Each flag is optional. Runnning `gbopyrator` without any flags simply ouputs the cartridge info. Here is an example of all the availables flags or options.
 ```bash
 gbopyrator \
     --dump-rom rom.gb               # dump the ROM to rom.gb file \
