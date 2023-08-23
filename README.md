@@ -3,7 +3,7 @@
 ![](imgs/gbopyrator_demo.gif)
 
 # ⚠️ Warning 
-Epilogue have released a new firmware for the GB Operator and it seems that gbopyrator is not yet compatible with it (see [here](https://github.com/N0ciple/gbopyrator/issues/1)).
+Epilogue has released a new firmware for the GB Operator and it seems that gbopyrator is not yet compatible with it (see [here](https://github.com/N0ciple/gbopyrator/issues/1)).
 
 ## ℹ️ Information
 
