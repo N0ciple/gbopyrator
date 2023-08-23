@@ -2,6 +2,9 @@
 
 ![](imgs/gbopyrator_demo.gif)
 
+# ⚠️ Warning 
+Epilogue have released a new firmware for the GB Operator and it seems that gbopyrator is not yet compatible with it (see [here](https://github.com/N0ciple/gbopyrator/issues/1)).
+
 ## ℹ️ Information
 
 GBOpyrator is a versatile Python package that allows you to manage and control the GB Operator from [Epilogue](https://www.epilogue.co/) via the command line. It currently supports **GameBoy** and **GameBoy Color** games, with GameBoy Advance compatibility in the works! 
