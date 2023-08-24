@@ -7,6 +7,7 @@ wireshark_dumps/
 *.gb
 *.gbc
 *.gba
+debug_scripts.py
 
 # ========================= #
 
