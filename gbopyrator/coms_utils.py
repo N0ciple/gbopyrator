@@ -3,15 +3,21 @@ import time
 from crccheck.crc import Crc32Mpeg2
 from .constants import MBC_TYPES, RAM_TYPES, ROM_TYPES
 from rich.progress import Progress
+import warnings
 
 
 # Endpoints definitiions for USB Bulk IN and OUT
 IN_ENDPOINT = 0x81
 OUT_ENDPOINT = 0x01
 
-# GB Operator Vendor and Product IDs
-GB_OPERATOR_VENDOR_ID = 0x1D50
-GB_OPERATOR_PRODUCT_ID = 0x6018
+# GB Operator Vendor and Product IDs (firmware 9.0+)
+GB_OPERATOR_VENDOR_ID = 0x16d0
+GB_OPERATOR_PRODUCT_ID = 0x123d
+
+# Old GB Operator Vendor and Product IDs ( firmware pre 9.0)
+
+OLD_GB_OPERATOR_VENDOR_ID = 0x1D50
+OLD_GB_OPERATOR_PRODUCT_ID = 0x6018
 
 # Trigger sequence
 TRIGGER_CARTRIDGE_INFO = bytearray(
@@ -208,9 +214,27 @@ def find_gb_operator():
     """
     # Find GB Operator with vendor ID and product ID
     # Those values can be found with `lsusb`
-    return usb.core.find(
+    
+    # Find device with firmware v9.0+
+    found_device = usb.core.find(
         idVendor=GB_OPERATOR_VENDOR_ID, idProduct=GB_OPERATOR_PRODUCT_ID
     )
+    # Find older devices 
+    found_old_device = usb.core.find(
+            idVendor=OLD_GB_OPERATOR_VENDOR_ID, idProduct=OLD_GB_OPERATOR_PRODUCT_ID
+    )
+
+
+    if (found_device is not None) and (found_old_device is not None):
+        warnings.warn("Found 2 GB Operators, one of which with and old firmware. \
+                      GB Opyrator will use the one with the newer firmware", category=Warning)
+        return found_device
+    elif found_device is not None:
+        return found_device
+    elif found_old_device is not None:
+        warnings.warn("Found GB Operator with old firmware. Please update it with Playback from epilogue.co")
+        return found_old_device
+
 
 
 def find_gb_operator_blocking(timeout=0):
@@ -342,7 +366,7 @@ def read_cartridge_info(gbop_device):
     dict
     """
     # Send trigger_bytes
-    gbop_device.write(OUT_ENDPOINT, TRIGGER_CARTRIDGE_INFO)
+    gbop_device.write(OUT_ENDPOINT, add_crc32(TRIGGER_CARTRIDGE_INFO))
 
     # Burn the ACK
     _ = gbop_device.read(IN_ENDPOINT, 60)
