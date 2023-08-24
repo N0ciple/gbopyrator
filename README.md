@@ -18,7 +18,7 @@ pip install gbopyrator
 
 ### As a CLI tool
 
-Each flag is optional. Runnning `gbopyrator` without any flags simply ouputs the cartridge info. Here is an example of all the availables flags or options.
+Each flag is optional. Running `gbopyrator` without any flags simply outputs the cartridge info. Here is an example of all the available flags or options.
 
 ```bash
 gbopyrator \
