@@ -27,4 +27,5 @@ setup(
         "Programming Language :: Python :: 3.9",
     ],
     python_requires=">=3.7",
+    url="https://github.com/N0ciple/gbopyrator",
 )
